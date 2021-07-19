@@ -47,7 +47,16 @@ input::placeholder {
   background: var(--div-bg);
   height: 60px;
 }
-
+button {
+  background: var(--div-bg);
+  border: 0 none;
+  color: var(--font-color1);
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
 .user-select p{
   color: var(--font-color1);
   padding-top: 8px;
@@ -56,4 +65,28 @@ input::placeholder {
 .user-select:hover > p{
   color: var(--font-color2);
   text-decoration: underline;
+}
+
+.align-center {
+  text-align: center;
+}
+.disply-archieved-users {
+  width: 300px;
+  .disply-user {
+    font-weight: bold;
+  }
+  .user-name {
+    padding: 10px;
+  }
+  .user-wrap {
+    padding-bottom: 10px;
+    margin-top: 10px;
+    background: var(--font-color1);
+    border-top: 1px solid var(--nav-bg);
+    border-bottom: 1px solid var(--nav-bg);
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
 }
