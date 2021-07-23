@@ -1,0 +1,42 @@
+<div class="columns is-centered">
+   {{#each @model as |user|}}
+   {{!-- template-lint-disable no-negated-condition --}}
+   {{#if (not user.archived)}}
+   <div class="column">
+      <LinkTo @route="users.user" @model={{user.id}}>
+         <div class="user-select is-220px">
+            <img
+               class="is-pulled-left"
+               src={{user.image}}
+               width="60px"
+               alt="profile-image"
+               />
+            <p>{{user.name}}</p>
+         </div>
+      </LinkTo>
+      <ArchiveUser @user={{user}}/>
+   </div>
+   {{/if}}
+   {{/each}}
+</div>
+
+<button type="button"  {{on "click"  (fn this.allUsers)}}>Display Archived Users</button>
+
+<div class="archived-users">
+   {{#each this.userData as |user|}}
+   {{#if user.archived}}
+   <div class="continainer">
+      <div class="user">
+        <img
+            class="is-pulled-left"
+            src={{user.image}}
+            width="80px"
+            alt="profile-image"
+            />
+        {{user.name}}
+        </div>
+      <button type="button" {{on "click"  (fn this.unarchivedUser user.id)}}>Unarchive</button>
+   </div>
+   {{/if}}    
+   {{/each}}
+</div>

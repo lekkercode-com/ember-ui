@@ -46,7 +46,8 @@ const usersJson = {
     "attributes": {
       "name": "Albert Einstein",
       "image": "/images/Einstein.jpg",
-      "value": "false"
+      "value": "false",
+      "archived": "true"
     }
   },
   {
@@ -55,7 +56,8 @@ const usersJson = {
     "attributes": {
       "name": "Walt Disney",
       "image": "/images/Walt.jpg",
-      "value": "false"
+      "value": "false",
+      "archived": "false"
     }
   },
   {
@@ -64,7 +66,8 @@ const usersJson = {
     "attributes": {
       "name": "Bruce Lee",
       "image": "/images/Bruce.jpg",
-      "value": "false"
+      "value": "false",
+      "archived": "true"
     }
   },
   {
@@ -73,7 +76,8 @@ const usersJson = {
     "attributes": {
       "name": "Neil Armstrong",
       "image": "/images/Neil.jpg",
-      "value": "false"
+      "value": "false",
+      "archived": "false"
     }
   }
   ]
