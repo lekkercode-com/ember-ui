@@ -1,0 +1,142 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "inputs": [
+    {
+      "id": "environmentName",
+      "description": "Environment to compile the Ember App in",
+      "default": "dev-on-prod",
+      "type": "pickString",
+      "options": [
+        "development",
+        "production",
+        "dev-on-prod"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "label": "npm install",
+      "type": "shell",
+      "command": "npm install"
+    },
+    {
+      "label": "ember build",
+      "type": "process",
+      "command": "npx",
+      "args": [
+        "ember",
+        "build",
+        "--environment=${input:environmentName}"
+      ],
+      "problemMatcher": {
+        "owner": "Ember.js CLI",
+        "fileLocation": "absolute",
+        "pattern": [
+          {
+            "regexp": "^\\s*(.+)\\s*$",
+            "file": 1
+          },
+          {
+            "regexp": "^\\s*(\\d+):(\\d+)\\s+(\\w+)\\s+(.+)\\s+(.+)$",
+            "line": 1,
+            "column": 2,
+            "severity": 3,
+            "message": 4,
+            "code": 5,
+            "loop": true
+          }
+        ]
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": [
+        "npm install"
+      ]
+    },
+    {
+      "label": "ember test",
+      "type": "process",
+      "command": "npx",
+      "args": [
+        "ember",
+        "test"
+      ],
+      "problemMatcher": {
+        "owner": "Ember.js CLI",
+        "fileLocation": "absolute",
+        "pattern": [
+          {
+            "regexp": "^\\s*(.+)\\s*$",
+            "file": 1
+          },
+          {
+            "regexp": "^\\s*(\\d+):(\\d+)\\s+(\\w+)\\s+(.+)\\s+(.+)$",
+            "line": 1,
+            "column": 2,
+            "severity": 3,
+            "message": 4,
+            "code": 5,
+            "loop": true
+          }
+        ]
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "dependsOn": [
+        "npm install"
+      ]
+    },
+    {
+      "label": "ember server",
+      "type": "process",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "command": "npx",
+      "args": [
+        "ember",
+        "server",
+        "--environment=${input:environmentName}"
+      ],
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "Ember.js CLI",
+        "fileLocation": "absolute",
+        "pattern": [
+          {
+            "regexp": "^\\s*(.+)\\s*$",
+            "file": 1
+          },
+          {
+            "regexp": "^\\s*(\\d+):(\\d+)\\s+(\\w+)\\s+(.+)\\s+(.+)$",
+            "line": 1,
+            "column": 2,
+            "severity": 3,
+            "message": 4,
+            "code": 5,
+            "loop": true
+          }
+        ],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^\\s*file changed.*$",
+          "endsPattern": "^\\s*Build successful.*$"
+        }
+      },
+      "dependsOn": [
+        "npm install"
+      ]
+    }
+  ]
+}
