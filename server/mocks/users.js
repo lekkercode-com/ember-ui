@@ -75,6 +75,16 @@ const usersJson = {
       "image": "/images/Neil.jpg",
       "value": "false"
     }
-  }
+  },
+  {
+    "id": "5",
+    "type": "user",
+    "attributes": {
+      "name": "Stephen Hawking",
+      "image": "/images/Stephen.png",
+      "value": "false",
+      "archived": true
+    },
+  },
   ]
 };
