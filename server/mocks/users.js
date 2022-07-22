@@ -8,10 +8,10 @@ module.exports = function (app) {
     catches the Update request on a user
     PATCH "localhost:4200/api/users/1"
   */
-  usersRouter.patch('/:id', function (request) {
+  usersRouter.patch('/:id', function (request, res) {
     // Update data from the UI
     const requestBody = request.body;
-    // res.send();
+    res.send(requestBody);
   });
 
   /*
