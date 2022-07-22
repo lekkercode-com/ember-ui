@@ -45,8 +45,7 @@ const usersJson = {
     "type": "user",
     "attributes": {
       "name": "Albert Einstein",
-      "image": "/images/Einstein.jpg",
-      "value": "false"
+      "image": "/images/Einstein.jpg"
     }
   },
   {
@@ -54,8 +53,7 @@ const usersJson = {
     "type": "user",
     "attributes": {
       "name": "Walt Disney",
-      "image": "/images/Walt.jpg",
-      "value": "false"
+      "image": "/images/Walt.jpg"
     }
   },
   {
@@ -63,8 +61,7 @@ const usersJson = {
     "type": "user",
     "attributes": {
       "name": "Bruce Lee",
-      "image": "/images/Bruce.jpg",
-      "value": "false"
+      "image": "/images/Bruce.jpg"
     }
   },
   {
@@ -72,8 +69,7 @@ const usersJson = {
     "type": "user",
     "attributes": {
       "name": "Neil Armstrong",
-      "image": "/images/Neil.jpg",
-      "value": "false"
+      "image": "/images/Neil.jpg"
     }
   },
   {
@@ -82,7 +78,7 @@ const usersJson = {
     "attributes": {
       "name": "Stephen Hawking",
       "image": "/images/Stephen.png",
-      "value": "false",
+      "value": "One of the basic rules of the universe is that nothing is perfect.",
       "archived": true
     },
   },
