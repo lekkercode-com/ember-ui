@@ -1,0 +1,24 @@
+<cmp-user-archived-status ...attributes>
+  <div class="message {{if @user.archived "is-warning" "is-success"}}">
+    <div class="message-body">
+      <p>
+        This user is currently:
+        <span
+          class="{{if @user.archived "has-text-danger" "has-text-success"}}"
+          data-test-target="user-archived-status"
+        >
+          {{if @user.archived "archived" "active"}}
+        </span>
+      </p>
+      <br />
+      <button
+        class="button is-small {{if @user.archived "is-success" "is-danger"}}"
+        data-test-target="user-archive-status-toggle-button" type="button" {{on "click" (fn this.toggleArchived)}}
+      >
+        {{if @user.archived "Unarchive" "Archive"}}
+      </button>
+    </div>
+  </div>
+
+  {{yield}}
+</cmp-user-archived-status>
