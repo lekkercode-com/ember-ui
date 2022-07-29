@@ -8,10 +8,10 @@ module.exports = function (app) {
     catches the Update request on a user
     PATCH "localhost:4200/api/users/1"
   */
-  usersRouter.patch('/:id', function (request) {
+  usersRouter.patch('/:id', function (request, res) {
     // Update data from the UI
     const requestBody = request.body;
-    // res.send();
+    res.send(requestBody);
   });
 
   /*
@@ -45,8 +45,7 @@ const usersJson = {
     "type": "user",
     "attributes": {
       "name": "Albert Einstein",
-      "image": "/images/Einstein.jpg",
-      "value": "false"
+      "image": "/images/Einstein.jpg"
     }
   },
   {
@@ -54,8 +53,7 @@ const usersJson = {
     "type": "user",
     "attributes": {
       "name": "Walt Disney",
-      "image": "/images/Walt.jpg",
-      "value": "false"
+      "image": "/images/Walt.jpg"
     }
   },
   {
@@ -63,8 +61,7 @@ const usersJson = {
     "type": "user",
     "attributes": {
       "name": "Bruce Lee",
-      "image": "/images/Bruce.jpg",
-      "value": "false"
+      "image": "/images/Bruce.jpg"
     }
   },
   {
@@ -72,9 +69,18 @@ const usersJson = {
     "type": "user",
     "attributes": {
       "name": "Neil Armstrong",
-      "image": "/images/Neil.jpg",
-      "value": "false"
+      "image": "/images/Neil.jpg"
     }
-  }
+  },
+  {
+    "id": "5",
+    "type": "user",
+    "attributes": {
+      "name": "Stephen Hawking",
+      "image": "/images/Stephen.png",
+      "value": "One of the basic rules of the universe is that nothing is perfect.",
+      "archived": true
+    },
+  },
   ]
 };

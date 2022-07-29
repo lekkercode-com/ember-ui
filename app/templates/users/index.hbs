@@ -1,23 +1,47 @@
 {{page-title 'User'}}
+
+<nav class="navbar is-dark is-spaced">
+  <div class="navbar-end">
+    <div class="navbar-item">
+      <label class="is-clickable">
+        <input
+          type="checkbox"
+          data-test-target="checkbox-toggle-archived-users"
+          checked={{this.showArchivedUsers}}
+          {{on "change" (fn (mut this.showArchivedUsers) (not this.showArchivedUsers))}}
+        />
+        Include archived users
+      </label>
+    </div>
+  </div>
+</nav>
+
 <div class="container">
   <div class="columns is-centered">
 
     {{#each @model as |user|}}
-      <div class="column">
+      {{#if (or this.showArchivedUsers (not user.archived))}}
+        <div class="column">
 
-        <LinkTo @route="users.user" @model={{user}}>
-          <div class="user-select is-220px">
-            <img
-              class="is-pulled-left"
-              src={{user.image}}
-              width="60px"
-              alt="profile-image"
-            />
-            <p>{{user.name}}</p>
-          </div>
-        </LinkTo>
+          <LinkTo
+            @route="users.user"
+            @model={{user}}
+            data-test-target="user-card-in-list"
+            data-user-id={{user.id}}
+          >
+            <div class="user-select is-220px">
+              <img
+                class="is-pulled-left"
+                src={{user.image}}
+                width="60px"
+                alt="profile-image"
+              />
+              <p>{{user.name}}</p>
+            </div>
+          </LinkTo>
 
-      </div>
+        </div>
+      {{/if}}
     {{/each}}
 
   </div>
