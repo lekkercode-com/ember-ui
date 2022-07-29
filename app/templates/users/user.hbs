@@ -23,27 +23,7 @@
           {{@model.value}}
         </p>
 
-        <div class="message {{if @model.archived "is-warning" "is-success"}}">
-          <div class="message-body">
-            <p>
-              This user is currently:
-              <span
-                class="{{if @model.archived "has-text-danger" "has-text-success"}}"
-                data-test-target="user-archived-status"
-              >
-                {{if @model.archived "archived" "active"}}
-              </span>
-            </p>
-            <br />
-            <button
-              class="button is-small {{if @model.archived "is-success" "is-danger"}}"
-              data-test-target="user-archive-status-toggle-button"
-              {{on "click" (fn this.toggleArchived @model)}}
-            >
-              {{if @model.archived "Unarchive" "Archive"}}
-            </button>
-          </div>
-        </div>
+        <UserArchivedStatus @user={{@model}} />
 
       </div>
     </div>
